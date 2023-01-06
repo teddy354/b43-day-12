@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Projects.Projectname}}</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Icon -->
+    <link rel="icon" href="/public/img/brandred.png">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CDN Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand ms-5"><img src="/public/img/brandred.png" alt="Icon Dumbways" width="50px"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="/project" class="nav-link">Add Project</a>
+                    </li>
+                    {{else}}
+                    {{end}}
+                </ul>
+                <ul class="navbar-nav me-3">
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hello, {{.Data.UserName}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="/contact"><button type="button" class="btn btn-primary me-5">Contact Me</button></a>
+            </div>
+            <!-- Button navbar mobile start -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Button navbar mobile end -->
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Main Start -->
+    <main>
+        <!-- Card Start -->
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="bodycard card m-5 rounded" style="width: 90%; background-color: #fbfbfb !important;">
+                <div class="card-body">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <h2>{{ .Projects.Projectname}}</h2>
+                        <div class="row me-2 ms-4">
+                            <div class="col-7 mb-3">
+                                <div class="thumbnail-wrap">
+                                    <img src="/upload/{{.Projects.Image}}" class="img-thumbnail border-0 rounded-3" style="width: 670px; height: 400px;">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    <h3 class="mb-2">Duration</h3>
+                                    <span class="d-flex align-items-center me-2">
+                                        <span class="d-flex flex-row me-3">
+                                            <img src="/public/img/icons8-calendar-50.png" style="width: 40px; height: 40px;">
+                                            <h6 class="m-auto ms-2">{{ .Projects.Startdate.Format "01 Jan 2006" }} s/d. {{ .Projects.Enddate.Format "01 Jan 2006" }}</h6>
+                                        </span>
+                                    </span>
+                                    <span class="d-flex me-2 mt-3">
+                                        <span class="d-flex flex-row me-3">
+                                            <img src="/public/img/icons8-wall-clock-50.png" style="width: 40px; height: 40px;">
+                                            <h6 class="m-auto ms-2">{{ .Projects.Duration }}</h6>
+                                        </span>
+                                    </span>
+                                </div>
+                                <h3 class="mb-3">Technologies</h3>
+                                <div class="d-flex align-items-center flex-wrap">
+                                    {{ range $index, $data := .Projects.Technologies }}
+                                    <div class="icon-half">
+                                        {{ if (eq $data "nodejs")}}
+                                        <span class="me-3"><img src="/public/img/nodejs.svg" width="30" style="margin-bottom: 10px; margin-right: 5px;"/>Node JS</span>
+                                        {{end}}
+                                        {{ if (eq $data "reactjs") }}
+                                        <span class="me-3"><img src="/public/img/reactjs.svg" width="30" style="margin-bottom: 10px; margin-right: 5px;"/>React JS</span>
+                                        {{end}}
+                                    </div>
+                                    <div class="icon-half">
+                                        {{ if (eq $data "nextjs" )}}
+                                        <span class="me-3"><img src="/public/img/nextjs.svg" width="30" style="margin-bottom: 10px; margin-right: 5px;"/>Next JS</span>
+                                        {{end}}
+                                        {{ if (eq $data "typescript" )}}
+                                        <span class="me-3"><img src="/public/img/typescript.svg" width="30" style="margin-bottom: 10px; margin-right: 5px;"/>Typescript</span>
+                                        {{end}}
+                                    </div>
+                                    {{end}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column ms-5 me-5 mt-4" style="text-align: justify;">
+                        <p>{{ .Projects.Description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Main End -->
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

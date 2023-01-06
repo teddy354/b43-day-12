@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Sora', sans-serif;
+}
+
+body {
+    background-color: #fafbfc !important;
+}
+
+p, h1, h2, h3, h4, h5, h6, label, figcaption, span {
+    color: #060606 !important;
+}
+
+nav {
+    background-color: #ffffff !important;
+}
+
+ul.navbar-nav li.nav-item a.nav-link {
+    color: rgb(16, 16, 16) !important;
+}
+
+ul.navbar-nav li.nav-item a.nav-link.active {
+    color: #4e4e4e !important;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px #ffffff, 0 0 30px #dee1e6, 0 0 40px #f7fafe, 0 0 55px #f0f3f6, 0 0 75px #f2f2f2 !important;
+}
+
+ul.navbar-nav li.nav-item a.nav-link:hover {
+    color: #e8e8e8 !important;
+    transition: 500ms;
+    text-shadow: 0 0 5px #f9f9f9, 0 0 10px #fbfbfb, 0 0 15px #ffffff, 0 0 20px #dcdcdc, 0 0 30px #797979, 0 0 40px #d2d2d2, 0 0 55px #ffffff, 0 0 75px #f7f7f7 !important;
+}
+
+.btn.btn-primary {
+    background-color: #000000 !important;
+    border: none;
+}
+
+.btn.btn-primary:hover {
+    background-color: #000000 !important;
+    transition: 500ms;
+    box-shadow: 0 0 5px #bdbdbd, 0 0 10px #ececec, 0 0 15px #cecece, 0 0 20px #e0e0e0, 0 0 30px #e6e6e6, 0 0 40px #dddddd, 0 0 55px #d7d7d7, 0 0 75px #ebecee !important;
+}
+
+.btn.btn-primary.active {
+    background-color: #141414 !important;
+    box-shadow: 0 0 5px #f0f0f0, 0 0 10px #c0c0c0, 0 0 15px #bababa, 0 0 20px #b7b7b7, 0 0 30px #cacaca, 0 0 40px #919191, 0 0 55px #c8c8c8, 0 0 75px #b5b5b5 !important;
+}
+
+.bodycard {
+    box-shadow: 0 0 5px #757575, 0 0 10px #868686, 0 0 15px #f6f6f6, 0 0 20px #ffffff, 0 0 30px #cccccc, 0 0 40px #e9e9ea, 0 0 55px #ffffff, 0 0 75px #d4d4d4 !important;
+}
+
+input.form-control, textarea.form-control, input.form-check-input, select.form-select {
+    background-color: #e4e4e4 !important;
+    border: none !important;
+    color: #141414 !important;
+}
+
+input[type=file]::-webkit-file-upload-button {
+    background-color: #f1f2f3 !important; 
+    color: #ffffff !important;
+}
+
+input[type=file]:hover::-webkit-file-upload-button {
+    background-color: #ededed!important;
+}

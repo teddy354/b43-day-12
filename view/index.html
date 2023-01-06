@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Icon -->
+    <link rel="icon" href="/public/img/brandred.png">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CDN Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a href="/" class="navbar-brand ms-5"><img src="/public/img/brandred.png" alt="Icon Dumbways" width="50px"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link active" aria-current="page">Home</a>
+                    </li>
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="/project" class="nav-link">Add Project</a>
+                    </li>
+                    {{else}}
+                    {{end}}
+                </ul>
+                <ul class="navbar-nav me-3">
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hello, {{.Data.UserName}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="/contact"><button type="button" class="btn btn-primary me-5">Contact Me</button></a>
+            </div>
+            <!-- Button navbar mobile start -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Button navbar mobile end -->
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    {{if .Data.FlashData}}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{.Data.FlashData}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{end}}
+    <!-- Main Start -->
+    <main>
+        <!-- Card Start -->
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="bodycard card m-5 rounded border-0" style="width: 90%; background-color: #f1f1f7 !important;">
+                <div class="card-body">
+                    <div class="d-flex flex-row">
+                        <div class="container ms-4">
+                            <div class="intro-text mt-3">
+                                <h2 class="mb-3">Hi Welcome to my hut</h2>
+                                <p style="text-align: justify;">
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam id exercitationem non unde tempora? Rem, corrupti! Quo consectetur impedit quasi excepturi autem accusantium eos ipsa iure laudantium dicta mollitia quaerat eaque cum nemo reiciendis ratione, modi, enim quas quam! Atque provident doloremque obcaecati quam reprehenderit, ipsa, nihil dolor dicta blanditiis explicabo sapiente! Ipsum commodi rerum facere, vero labore suscipit! Adipisci! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil illo est veniam animi assumenda deleniti voluptatibus quaerat enim qui.
+                                </p>
+                                <div class="Download-Button mt-2 d-inline-block">
+                                    <a href="contact.html" class="btn btn-primary rounded-5">
+                                        Contact Me
+                                    </a>
+                                    <a href="#" class="ms-3 text-decoration-none" style="color: #0c0c0c !important;">Download CV <img src="/public/img/download.png" style="width: 25px;" class="ms-1"></a>
+                                </div>
+                                <div class="sosmed mt-4">
+                                    <a href="https://www.linkedin.com/in/teddyadji-pangestu-620a35256/" class="me-2"><img src="/public/img/linkedin.png" style="width: 40px;"></a>
+                                    <a href="https://github.com/teddy354" class="me-2"><img src="/public/img/icons8-github-50.png" style="width: 40px;"></a>
+                                    <a href="https://www.instagram.com/teddyadji/" class="me-2"><img src="/public/img/instagram.png" style="width: 40px;"></a>
+                                    <a href="https://twitter.com/teddyadjip" class="me-2"><img src="/public/img/twitter.png" style="width: 40px;"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card me-5 ms-5 shadow shadow-lg" style="width: 25rem; height: 25rem; background-color: #f4f4f4 !important;">
+                            <img src="/public/img/teddy.jpg.jpg" class="w-100 rounded-2" style="object-fit: cover; width: 290px; height: 290px;">
+                            <div class="card-body text-center mt-3">
+                                <h5 class="card-title">Teddy Adji Pangestu</h5>
+                                <p class="card-text">Fullstack Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card End -->
+        <!-- My Project Start -->
+        <div class="card rounded-0 border-0" style="background-color: #f7f7f7 !important;">
+            <div class="card-body me-5 ms-5">
+                <h2 class="text-center mb-2">My Project</h2>
+                <div class="row row-cols-2 row-cols-md-4 g-3 mt-3">
+                    <!-- Dynamic Content Start -->
+                    {{ range $index, $data := .Projects }}
+                    <div class="col">
+                        <div class="card h-100" style="background-color: #eaeaea !important;">
+                            <img src="/upload/{{$data.Image}}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title"><a href="/project/{{ $data.ID }}" class="text-decoration-none">{{$data.Projectname}}</a></h5>
+                                <h6>Duration: {{$data.Duration}}</h6>
+                                <div class="description-text" style="height: 30px; overflow: hidden; max-width: 100%;">
+                                    <p class="card-text">{{$data.Description}}</p>
+                                </div>
+                                <div class="tech-icon fs-3">
+                                    {{ range $index, $data := $data.Technologies}}
+                                    <span class="icon">
+                                        <img src="/public/img/{{ $data }}.svg" style="width: 25px;">
+                                    </span>
+                                    {{end}}
+                                </div>
+                                {{if $.Data.IsLogin}}
+                                <div class="card-button w-100 d-flex justify-content-between">
+                                    <a href="/editProject/{{$data.ID}}" class="btn btn-primary w-50 m-1">Edit</a>
+                                    <a href="/deleteProject/{{$data.ID}}" class="btn btn-primary w-50 m-1">Delete</a>
+                                </div>
+                                {{else}}
+                                {{end}}
+                            </div>
+                        </div>
+                    </div>
+                    {{end}}
+                    <!-- Dynamic Content End -->
+                </div>
+            </div>
+        </div>
+        <!-- My Project End -->
+    </main>
+    <!-- Main End -->
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

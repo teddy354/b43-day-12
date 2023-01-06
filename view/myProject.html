@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Project</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <!-- Icon -->
+    <link rel="icon" href="/public/img/brandred.png">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- CDN Bootstrap & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid" >
+            <a href="/" class="navbar-brand ms-5"><img src="/public/img/brandred.png" alt="Icon Dumbways" width="50px"></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="/project" class="nav-link active" aria-current="page">Add Project</a>
+                    </li>
+                    {{else}}
+                    {{end}}
+                </ul>
+                <ul class="navbar-nav me-3">
+                    {{if .Data.IsLogin}}
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Hello, {{.Data.UserName}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                    {{else}}
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/login" class="nav-link">Login</a>
+                    </li>
+                    {{end}}
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+                <a href="/contact"><button type="button" class="btn btn-primary me-5">Contact Me</button></a>
+            </div>
+            <!-- Button navbar mobile start -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle-navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Button navbar mobile end -->
+        </div>
+    </nav>
+    <!-- Navbar End -->
+    <!-- Main Start -->
+    <main>
+        <!-- Form Start -->
+        <div class="container mt-5 mb-5 p-2 rounded bodycard" style="width: 44vw; background-color: #ffffff !important;">
+            <h3 style="text-align: center;" class="mb-4">ADD MY PROJECT</h3>
+            <form action="/project" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                    <label for="project-name" class="form-label mb-0">Project Name</label>
+                    <input type="text" class="form-control shadow-sm rounded" id="project-name" name="project-name">
+                </div>
+                <div class="mb-3 d-flex justify-content-between">
+                    <div class="w-50 me-2">
+                        <label for="start-date" class="form-label mb-0">Start Date</label>
+                        <input type="date" class="form-control shadow-sm rounded" id="start-date" name="start-date">
+                    </div>
+                    <div class="w-50">
+                        <label for="end-date" class="form-label mb-0">End Date</label>
+                        <input type="date" class="form-control shadow-sm rounded" id="end-date" name="end-date">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label mb-0">description</label>
+                    <textarea class="form-control shadow-sm bg-body" id="description" name="description" style="height: 150px;"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Technologies</label>
+                    <div class="d-flex flex-row">
+                        <div class="half me-5">
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="nodejs" value="nodejs" name="technologies">
+                                <label for="nodejs" class="form-check-label">Node JS</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="reactjs" value="reactjs" name="technologies">
+                                <label for="reactjs" class="form-check-label">React JS</label>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="nextjs" value="nextjs" name="technologies">
+                                <label for="nextjs" class="form-check-label">Next JS</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="typescript" value="typescript" name="technologies">
+                                <label for="typescript" class="form-check-label">Typescript</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="upload-image" class="form-label">Upload Image</label>
+                    <input type="file" id="upload-image" name="image" class="form-control shadow-sm rounded">
+                </div>
+                <div class="mb-4 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <!-- Form End -->
+    </main>
+    <!-- Main End -->
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
